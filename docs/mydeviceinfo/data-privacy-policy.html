@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — My Device Info</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand:   #6366f1;
+      --brand-2: #3b82f6;
+      --text:    #1e293b;
+      --muted:   #64748b;
+      --border:  #e2e8f0;
+      --bg:      #f8fafc;
+      --card:    #ffffff;
+      --radius:  12px;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── Lang switcher ── */
+    .lang-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.625rem 1rem;
+    }
+    .lang-btn {
+      padding: 0.35rem 1.1rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--brand);
+      background: transparent;
+      color: var(--brand);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: background 0.18s, color 0.18s;
+    }
+    .lang-btn.active, .lang-btn:hover {
+      background: var(--brand);
+      color: #fff;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      background: linear-gradient(135deg, #6366f1 0%, #3b82f6 100%);
+      color: #fff;
+      padding: 3rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+    .hero__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 64px;
+      height: 64px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.18);
+      margin-bottom: 1rem;
+    }
+    .hero__icon svg { width: 36px; height: 36px; color: #fff; }
+    .hero h1 {
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.4rem;
+    }
+    .hero__sub {
+      font-size: 0.9rem;
+      opacity: 0.85;
+    }
+    .hero__badge {
+      display: inline-block;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.35);
+      border-radius: 999px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Content ── */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .section__title {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--brand);
+      margin-bottom: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .section__title .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--brand);
+      flex-shrink: 0;
+    }
+
+    .section p { color: #334155; margin-bottom: 0.75rem; }
+    .section p:last-child { margin-bottom: 0; }
+
+    .data-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+    .data-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 0.45rem 0.75rem;
+      font-size: 0.875rem;
+      color: #475569;
+      font-weight: 500;
+    }
+    .data-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--brand-2);
+      flex-shrink: 0;
+    }
+
+    .highlight-box {
+      background: linear-gradient(135deg, #eff6ff, #eef2ff);
+      border: 1px solid #c7d2fe;
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: 0.9rem;
+      color: #3730a3;
+      font-weight: 600;
+      margin-top: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+    .highlight-box::before { content: '🔒'; font-size: 1.1rem; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--brand); text-decoration: none; }
+
+    /* ── Language sections ── */
+    [data-lang] { display: none; }
+    [data-lang].visible { display: block; }
+  </style>
+</head>
+<body>
+
+<!-- Language switcher -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en')" id="btn-en">English</button>
+  <button class="lang-btn" onclick="setLang('es')" id="btn-es">Español</button>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero__icon">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="5" y="1" width="14" height="22" rx="2.5" stroke="currentColor" stroke-width="1.5"/>
+      <rect x="7" y="4" width="10" height="13" rx="1" fill="currentColor" opacity="0.25"/>
+      <circle cx="12" cy="20" r="1" fill="currentColor"/>
+      <circle cx="12" cy="7.5" r="1" fill="currentColor"/>
+      <line x1="12" y1="9.5" x2="12" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>
+  </div>
+  <h1>MY DEVICE INFO</h1>
+  <p class="hero__sub">com.techpromux.mydeviceinfo · Techpromux</p>
+  <span class="hero__badge">Privacy Policy</span>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ENGLISH
+════════════════════════════════════════════ -->
+<div data-lang="en" class="visible">
+  <div class="content">
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Overview</div>
+      <p>
+        This Privacy Policy describes how <strong>My Device Info</strong>, developed by <strong>Techpromux</strong>,
+        handles information when you use this application. We are firmly committed to protecting your privacy.
+      </p>
+      <p>
+        This policy may be updated over time. We recommend reviewing this page periodically to stay informed of any changes.
+      </p>
+      <div class="highlight-box">
+        My Device Info does not collect, store, transmit, or share any personal data.
+        All information accessed by the app stays exclusively on your device.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Information accessed</div>
+      <p>
+        To function as a diagnostic tool, the app reads the following technical information directly from your device.
+        This data is displayed to you in the app interface and is never sent anywhere:
+      </p>
+      <ul class="data-list">
+        <li>Device name &amp; model</li>
+        <li>Manufacturer</li>
+        <li>Device identifier</li>
+        <li>Operating system &amp; version</li>
+        <li>API level (Android)</li>
+        <li>CPU cores &amp; architecture</li>
+        <li>RAM memory usage</li>
+        <li>Internal storage space</li>
+        <li>Battery level &amp; status</li>
+        <li>Network type &amp; status</li>
+        <li>Screen resolution &amp; DPI</li>
+        <li>Available sensors list</li>
+        <li>GPS location (on request)</li>
+        <li>System language &amp; locale</li>
+        <li>WebView version</li>
+        <li>App version &amp; build</li>
+      </ul>
+      <p style="margin-top:1rem;">
+        The app does <strong>not</strong> access contacts, messages, call history, photos, files, microphone,
+        camera, or any other personal or sensitive information beyond what is listed above.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Location permission</div>
+      <p>
+        My Device Info may request access to your device's GPS location exclusively to display your current
+        coordinates in the <em>Location</em> section. This data is shown on-screen only and is never stored,
+        logged, transmitted, or shared with any third party.
+      </p>
+      <p>
+        Location access is entirely optional. You can deny or revoke this permission at any time through your
+        device's system settings without affecting any other functionality of the app.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Local preferences</div>
+      <p>
+        The app saves your in-app preferences (selected theme, language, dashboard layout, and similar settings)
+        locally on your device using the device's local storage. This data never leaves your device and is used
+        solely to restore your settings between sessions.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>No telemetry or analytics</div>
+      <p>
+        My Device Info does not integrate any analytics SDK, crash-reporting tool, advertising network, or
+        third-party tracker. No usage data, diagnostic reports, or device fingerprints are collected or transmitted.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Cookies</div>
+      <p>
+        This application does not use cookies of any kind.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Third-party links</div>
+      <p>
+        The app may display links to external websites for informational purposes. Once you navigate to an
+        external site, this Privacy Policy no longer applies. We recommend reviewing the privacy policy of any
+        third-party site you visit.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Data security</div>
+      <p>
+        Because no personal data is transmitted or stored outside your device, the attack surface for data
+        breaches is inherently minimal. Techpromux is committed to maintaining the highest standards of security
+        in the development of this application.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Children's privacy</div>
+      <p>
+        My Device Info does not knowingly collect any information from children under the age of 13. The app
+        contains no features directed at children and no mechanism for submitting personal information.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Changes to this policy</div>
+      <p>
+        Techpromux reserves the right to update this Privacy Policy at any time. Changes will be reflected on
+        this page with an updated effective date. Continued use of the application after changes are posted
+        constitutes your acceptance of the revised policy.
+      </p>
+      <p>
+        <strong>Last updated:</strong> May 2025 &nbsp;·&nbsp; <strong>Effective:</strong> May 2025
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Contact</div>
+      <p>
+        If you have any questions or concerns about this Privacy Policy, please contact us at:<br/>
+        <strong>Techpromux</strong> — <a href="mailto:support@techpromux.com">support@techpromux.com</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ESPAÑOL
+════════════════════════════════════════════ -->
+<div data-lang="es">
+  <div class="content">
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Resumen</div>
+      <p>
+        Esta Política de Privacidad describe cómo <strong>My Device Info</strong>, desarrollada por <strong>Techpromux</strong>,
+        gestiona la información cuando utilizas esta aplicación. Estamos firmemente comprometidos con la protección de tu privacidad.
+      </p>
+      <p>
+        Esta política puede actualizarse con el tiempo. Recomendamos revisar esta página periódicamente para estar informado de cualquier cambio.
+      </p>
+      <div class="highlight-box">
+        My Device Info no recopila, almacena, transmite ni comparte ningún dato personal.
+        Toda la información a la que accede la app permanece exclusivamente en tu dispositivo.
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Información a la que se accede</div>
+      <p>
+        Para funcionar como herramienta de diagnóstico, la app lee la siguiente información técnica directamente
+        de tu dispositivo. Estos datos se muestran en la interfaz de la app y nunca se envían a ningún lugar:
+      </p>
+      <ul class="data-list">
+        <li>Nombre y modelo del dispositivo</li>
+        <li>Fabricante</li>
+        <li>Identificador del dispositivo</li>
+        <li>Sistema operativo y versión</li>
+        <li>Nivel de API (Android)</li>
+        <li>Núcleos y arquitectura del CPU</li>
+        <li>Uso de memoria RAM</li>
+        <li>Espacio de almacenamiento interno</li>
+        <li>Nivel y estado de batería</li>
+        <li>Tipo y estado de red</li>
+        <li>Resolución de pantalla y DPI</li>
+        <li>Lista de sensores disponibles</li>
+        <li>Ubicación GPS (bajo petición)</li>
+        <li>Idioma y configuración regional</li>
+        <li>Versión de WebView</li>
+        <li>Versión y build de la app</li>
+      </ul>
+      <p style="margin-top:1rem;">
+        La app <strong>no</strong> accede a contactos, mensajes, historial de llamadas, fotos, archivos,
+        micrófono, cámara ni ninguna otra información personal o sensible más allá de lo indicado anteriormente.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Permiso de ubicación</div>
+      <p>
+        My Device Info puede solicitar acceso a la ubicación GPS del dispositivo exclusivamente para mostrar
+        las coordenadas actuales en la sección de <em>Ubicación</em>. Estos datos se muestran en pantalla
+        únicamente y nunca se almacenan, registran, transmiten ni comparten con terceros.
+      </p>
+      <p>
+        El acceso a la ubicación es completamente opcional. Puedes denegar o revocar este permiso en cualquier
+        momento desde los ajustes del sistema del dispositivo sin que ello afecte al resto de funcionalidades de la app.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Preferencias locales</div>
+      <p>
+        La app guarda tus preferencias (tema seleccionado, idioma, disposición del panel principal y ajustes
+        similares) localmente en tu dispositivo mediante el almacenamiento local del mismo. Estos datos nunca
+        abandonan tu dispositivo y se utilizan únicamente para restaurar tu configuración entre sesiones.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Sin telemetría ni analíticas</div>
+      <p>
+        My Device Info no integra ningún SDK de analíticas, herramienta de informes de errores, red publicitaria
+        ni rastreador de terceros. No se recopilan ni transmiten datos de uso, informes de diagnóstico ni
+        huellas digitales del dispositivo.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Cookies</div>
+      <p>
+        Esta aplicación no utiliza cookies de ningún tipo.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Enlaces a terceros</div>
+      <p>
+        La app puede mostrar enlaces a sitios web externos con fines informativos. Una vez que navegues a un
+        sitio externo, esta Política de Privacidad deja de aplicarse. Recomendamos revisar la política de
+        privacidad de cualquier sitio de terceros que visites.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Seguridad de los datos</div>
+      <p>
+        Dado que no se transmiten ni almacenan datos personales fuera de tu dispositivo, la superficie de
+        exposición a brechas de datos es inherentemente mínima. Techpromux se compromete a mantener los más
+        altos estándares de seguridad en el desarrollo de esta aplicación.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Privacidad de menores</div>
+      <p>
+        My Device Info no recopila conscientemente información de menores de 13 años. La app no contiene
+        funciones dirigidas a menores ni mecanismo alguno para enviar información personal.
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Cambios en esta política</div>
+      <p>
+        Techpromux se reserva el derecho de actualizar esta Política de Privacidad en cualquier momento. Los
+        cambios se reflejarán en esta página con una fecha de entrada en vigor actualizada. El uso continuado
+        de la aplicación después de la publicación de los cambios implica la aceptación de la política revisada.
+      </p>
+      <p>
+        <strong>Última actualización:</strong> Mayo 2025 &nbsp;·&nbsp; <strong>Vigencia:</strong> Mayo 2025
+      </p>
+    </div>
+
+    <div class="section">
+      <div class="section__title"><span class="dot"></span>Contacto</div>
+      <p>
+        Si tienes preguntas o dudas sobre esta Política de Privacidad, puedes contactarnos en:<br/>
+        <strong>Techpromux</strong> — <a href="mailto:support@techpromux.com">support@techpromux.com</a>
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 Techpromux &nbsp;·&nbsp;
+  <span id="footer-app">My Device Info</span> &nbsp;·&nbsp;
+  <a href="mailto:support@techpromux.com">support@techpromux.com</a>
+</footer>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('[data-lang]').forEach(function(el) {
+      el.classList.toggle('visible', el.dataset.lang === lang);
+    });
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.classList.toggle('active', btn.id === 'btn-' + lang);
+    });
+    document.documentElement.lang = lang;
+  }
+
+  // Auto-detect browser language on load
+  (function() {
+    var lang = (navigator.language || 'en').slice(0, 2).toLowerCase();
+    if (lang === 'es') setLang('es');
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+import{c as a}from"./chunk-TDDKBJBY.js";import"./chunk-NWJ5J3BN.js";var l=class extends a{async alert(e){window.alert(e.message)}async prompt(e){let n=window.prompt(e.message,e.inputText||"");return{value:n!==null?n:"",cancelled:n===null}}async confirm(e){return{value:window.confirm(e.message)}}};export{l as DialogWeb};
