@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="132" height="132">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4F46E5"/>
+      <stop offset="100%" stop-color="#7C3AED"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.18)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0.06)"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="220" fill="url(#bg)"/>
+  <ellipse cx="512" cy="380" rx="260" ry="200" fill="rgba(167,139,250,0.25)"/>
+  <rect x="302" y="148" width="420" height="728" rx="56" fill="rgba(255,255,255,0.92)"/>
+  <rect x="330" y="210" width="364" height="600" rx="28" fill="url(#screenGrad)"/>
+  <rect x="448" y="180" width="128" height="22" rx="11" fill="rgba(79,70,229,0.25)"/>
+  <circle cx="540" cy="191" r="7" fill="rgba(79,70,229,0.4)"/>
+  <circle cx="512" cy="476" r="108" fill="rgba(79,70,229,0.12)"/>
+  <circle cx="512" cy="476" r="84" fill="#4F46E5"/>
+  <circle cx="512" cy="432" r="12" fill="white"/>
+  <rect x="500" y="455" width="24" height="64" rx="12" fill="white"/>
+  <rect x="442" y="844" width="140" height="14" rx="7" fill="rgba(79,70,229,0.3)"/>
+  <circle cx="330" cy="210" r="4" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="694" cy="210" r="4" fill="rgba(255,255,255,0.4)"/>
+</svg>

@@ -6,10 +6,11 @@
   How it works:
     1. GitHub Pages serves this file whenever a URL like
        https://techpromux.github.io/apps/mydeviceinfo/device is not found.
-    2. This script saves the full URL in sessionStorage and redirects to the
-       Angular app root (/apps/mydeviceinfo/).
-    3. The Angular app's index.html reads the saved URL before Angular boots
-       and uses history.replaceState so the router navigates to the right page.
+    2. This script encodes the intended path as a ?r= query parameter and
+       redirects to the Angular app root (/apps/mydeviceinfo/?r=...).
+    3. The Angular app's index.html reads ?r= synchronously (before Angular
+       boots) and calls history.replaceState so the router starts at the
+       correct page — no double-navigation, no dashboard flash.
 
   If you host other apps in other sub-paths, add them to the SPA_BASES list below.
 -->
@@ -19,14 +20,12 @@
   <title>Redirecting…</title>
   <script>
     (function () {
-      // Sub-paths that contain Angular SPAs — extend this list as needed
       var SPA_BASES = [
         '/apps/mydeviceinfo/'
       ];
 
       var path = location.pathname;
 
-      // Find the matching SPA base for the current path
       var base = null;
       for (var i = 0; i < SPA_BASES.length; i++) {
         if (path.startsWith(SPA_BASES[i]) || path === SPA_BASES[i].replace(/\/$/, '')) {
@@ -36,15 +35,13 @@
       }
 
       if (base) {
-        // Save the intended destination and bounce to the SPA root
-        sessionStorage.setItem('spa:redirect', JSON.stringify({
-          path: path,
-          search: location.search,
-          hash: location.hash
-        }));
-        location.replace(location.origin + base);
+        // Encode the target path (relative to root) as ?r= and redirect to the SPA root.
+        // index.html restores it via history.replaceState before Angular boots.
+        var target = path + location.search;
+        location.replace(
+          location.origin + base + '?r=' + encodeURIComponent(target) + location.hash
+        );
       }
-      // If no matching SPA, leave the page as-is (GitHub's default 404 content)
     })();
   </script>
 </head>
